@@ -1,32 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Categoria from '../components/Categoria.vue';
-import Login from '../components/Login.vue';
 import store from '../store/index';
-import Articulo from '../components/Articulo.vue';
-import Usuario from '../components/Usuario.vue';
 
 
 Vue.use(VueRouter);
 
-const routes = [{
-        path: "/login",
-        name: "login",
-        component: Login,
-        meta: {
-            public: true
-
-        }
-    },
-    {
-        path: '/usuario',
-        name: 'usuario',
-        component: Usuario,
-        meta: {
-            auth: true
-        }
-    },
+const routes = [
     {
         path: "/",
         name: "home",
@@ -38,9 +18,26 @@ const routes = [{
 
     },
     {
+        path: "/login",
+        name: "login",
+        component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue'),
+        meta: {
+            public: true
+
+        }
+    },
+    {
+        path: '/usuario',
+        name: 'usuario',
+        component: () => import(/* webpackChunkName: "about" */ '../components/Usuario.vue'),
+        meta: {
+            auth: true
+        }
+    },
+    {
         path: "/categoria",
         name: "categoria",
-        component: Categoria,
+        component: () => import(/* webpackChunkName: "about" */ '../views/Categorias.vue'),
         meta: {
             auth: true
         }
@@ -50,7 +47,7 @@ const routes = [{
     {
         path: "/articulo",
         name: "articulo",
-        component: Articulo,
+        component: () => import(/* webpackChunkName: "about" */ '../views/Articulos.vue'),
         meta: {
             auth: true
         }
@@ -74,7 +71,7 @@ router.beforeEach((to, from, next) => {
             next();
         }
     } else {
-        next({ name: 'login' });
+        next({ name: "login" });
     }
 })
 

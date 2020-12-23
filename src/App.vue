@@ -4,16 +4,29 @@
   <div v-if="estado">
       <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark ">
         <a class="navbar-brand " href="# ">
-            <img src="https://www.flaticon.com/svg/static/icons/svg/1934/1934014.svg" width="30 " height="30
-    " class="d-inline-block align-top " alt=" " loading="lazy "> SPRINT 5
+            <img src="https://www.flaticon.com/svg/static/icons/svg/1934/1934014.svg" width="30 " height="30" 
+            class="d-inline-block align-top " alt=" " loading="lazy "> SPRINT 5
         </a>
         <div class="collapse navbar-collapse justify-content-end " id="navbarNav ">
             <ul class="navbar-nav ">
                 <li class="nav-item active ">
-                    <a class="nav-link " v-on:click="ingresar" href="# ">Sistema <span class="sr-only ">(current)</span></a>
+                    <a class="nav-link " v-on:click="ingresar" href="#">Sistema <span class="sr-only ">(current)</span></a>
                 </li>
-            </ul>
+                <li> 
+                    <router-link class="nav-link " to="/home">Inicio</router-link>
+                </li>
+                <li> 
+                    <router-link class="nav-link " to="/categoria">Categorias</router-link>
+                </li>
+                <li> 
+                    <router-link class="nav-link " to="/articulo">Articulos</router-link>
+                </li>
+                <li> 
+                    <router-link class="nav-link " to="/login">Inicio Sesión</router-link>
+                </li>
+            </ul>            
         </div>
+        
       </nav>
 
     <div id="services">
@@ -301,11 +314,11 @@ export default {
 
 .slider-text-des{
   font-family:Georgia, 'Times New Roman', Times, serif;
-  color:black;
+  color:darkblue;
   -webkit-text-stroke-width: 0.8px;
   -webkit-text-stroke-color: white;
-  font-size: 35px;
-  font-weight: bold;
+  font-size: 40px;
+  font-weight:bold;
 }
 
 </style>
